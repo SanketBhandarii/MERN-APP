@@ -1,0 +1,90 @@
+.userTable {
+  background-color: white;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  border-radius: 5px;
+  padding: 50px; /* Adjusted padding for responsiveness */
+  margin: 20px;
+}
+.addButton {
+  text-decoration: none;
+  background-color: purple;
+  color: white;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.userTable table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+th {
+  background-color: darkblue;
+  color: white;
+  padding: 10px;
+  text-align: left; /* Improved readability */
+}
+td {
+  padding: 10px 20px;
+  text-align: center;
+}
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.actionButtons button, .actionButtons #editButton {
+  border: 0;
+  outline: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 10px;
+}
+.actionButtons button {
+  background: rgb(228, 4, 4);
+}
+.actionButtons #editButton {
+  background: rgb(0, 168, 79);
+}
+
+@media (max-width: 768px) {
+  .userTable {
+    padding: 20px;
+    margin: 10px;
+  }
+  th, td {
+    padding: 8px;
+  }
+  .actionButtons {
+  
+    gap: 5px;
+  }
+  .actionButtons button, .actionButtons #editButton {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .userTable {
+    padding: 10px;
+    margin: 10px;
+  }
+  th, td {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .actionButtons {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .actionButtons button, .actionButtons #editButton {
+    width: 100%;
+    font-size: 10px;
+  }
+}

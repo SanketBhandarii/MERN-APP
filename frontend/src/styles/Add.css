@@ -1,0 +1,79 @@
+.addUser {
+  background-color: white;
+  width: 400px;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+  border-radius: 5px;
+  padding: 50px;
+  margin: auto; /* Center align the form */
+  margin-top: 20px;
+}
+
+.addUser > form {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 2px;
+  border-color: white;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.addUser > form > h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.inputGroup > input {
+  padding: 9px;
+  border: 1px solid #ccc; /* Add border for better visibility */
+  border-radius: 5px;
+}
+
+.inputGroup > button {
+  border: 0;
+  outline: none;
+  background-color: purple;
+  color: white;
+  font-weight: 600;
+  padding: 13px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 441px) {
+  .addUser > form > h3 {
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .inputGroup > input {
+    padding: 7px; /* Adjust input padding */
+  }
+
+  .inputGroup > button {
+    padding: 11px; /* Adjust button padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .addUser {
+    width: 100%; /* Full width for very small screens */
+    padding: 30px; /* Further reduce padding */
+  }
+
+  .addUser > form > h3 {
+    font-size: 18px; /* Further adjust font size */
+  }
+
+  .inputGroup > input {
+    padding: 5px; /* Further adjust input padding */
+  }
+
+  .inputGroup > button {
+    padding: 9px; /* Further adjust button padding */
+  }
+}
