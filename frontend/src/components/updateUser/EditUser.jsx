@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "../../styles/Add.css";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,23 +12,21 @@ function EditUser() {
   let fname = useRef();
   let lname = useRef();
   let email = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get(`https://mern-backend-grm4.onrender.com/api/getone/${id}`)
-        .then((res) => {
-          fname.current.value = res.data.userData.fname;
-          lname.current.value = res.data.userData.lname;
-          email.current.value = res.data.userData.email;
-        })
-        .catch((err) => {
-          toast.error("Error occurred", {
-            position: "top-center",
-          });
+    axios
+      .get(`https://mern-backend-grm4.onrender.com/api/getone/${id}`)
+      .then((res) => {
+        fname.current.value = res.data.userData.fname;
+        lname.current.value = res.data.userData.lname;
+        email.current.value = res.data.userData.email;
+      })
+      .catch((err) => {
+        toast.error("Error occurred", {
+          position: "top-center",
         });
-    }
-    fetchData();
+      });
   }, []);
 
   async function update(event) {
@@ -38,13 +36,14 @@ function EditUser() {
       lname: lname.current.value,
       email: email.current.value,
     };
+    fname.current.value = "";
+    lname.current.value = "";
+    email.current.value = "";
+    toast.success("Data successfully updated", { position: "top-center" });
     await axios
       .put(`https://mern-backend-grm4.onrender.com/api/update/${id}`, newUser)
       .then((res) => {
-        fname.current.value = "";
-        lname.current.value = "";
-        email.current.value = "";
-        toast.success(res.data.msg, { position: "top-center" });
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data);

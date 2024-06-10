@@ -61,8 +61,8 @@
 
 @media (max-width: 480px) {
   .addUser {
-    width: 100%; /* Full width for very small screens */
-    padding: 30px; /* Further reduce padding */
+    width: 350px; /* Full width for very small screens */
+    padding: 50px; /* Further reduce padding */
   }
 
   .addUser > form > h3 {
@@ -70,10 +70,16 @@
   }
 
   .inputGroup > input {
-    padding: 5px; /* Further adjust input padding */
+    padding: 9px; /* Further adjust input padding */
   }
 
   .inputGroup > button {
     padding: 9px; /* Further adjust button padding */
+  }
+}
+@media (max-width: 480px) {
+  .addUser {
+    width: 100%; /* Full width for very small screens */
+    padding: 50px; /* Further reduce padding */
   }
 }

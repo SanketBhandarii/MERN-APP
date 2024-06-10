@@ -22,16 +22,15 @@ function AddUser() {
       password: password.current.value,
     };
 
-    console.log(newUser);
-
+    fname.current.value = "";
+    lname.current.value = "";
+    email.current.value = "";
+    password.current.value = "";
+    toast.success("User data saved successfully", { position: "top-center" });
     await axios
       .post("https://mern-backend-grm4.onrender.com/api/create", newUser)
       .then((res) => {
-        fname.current.value = "";
-        lname.current.value = "";
-        email.current.value = "";
-        password.current.value = "";
-        toast.success(res.data.msg, { position: "top-center" });    
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data);

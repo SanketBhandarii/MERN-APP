@@ -9,31 +9,27 @@ function User() {
   const [userdata, setUserdata] = useState([]);
   const { id } = useParams();
 
-
   useEffect(() => {
-    async function fetchdata() {
-      await axios
-        .get("https://mern-backend-grm4.onrender.com/api/getAll")
-        .then((res) => {
-          setUserdata(res.data.userData);
-        })
-        .catch((err) => {
-          toast.error("Error occurred", {
-            position: "top-center",
-          });
-          console.log(err);
+    axios
+      .get("https://mern-backend-grm4.onrender.com/api/getAll")
+      .then((res) => {
+        setUserdata(res.data.userData);
+      })
+      .catch((err) => {
+        toast.error("Error occurred", {
+          position: "top-center",
         });
-    }
-    fetchdata();
+        console.log(err);
+      });
   }, []);
 
-  async function deleteData(userId) {
-    await axios
+  function deleteData(userId) {
+    setUserdata((prevUser) =>
+      prevUser.filter((user) => user._id !== userId)
+    );
+    toast.success("Data deleted successfully", { position: "top-center" });
+    axios
       .delete(`https://mern-backend-grm4.onrender.com/api/delete/${userId}`)
-      .then((res) => {
-        setUserdata((prevUser) => prevUser.filter((user) => user._id !== userId));
-        toast.success(res.data.msg, { position: "top-center" });
-      })
       .catch((err) => {
         console.log(err.response.data);
         toast.error("Error occurred", {
