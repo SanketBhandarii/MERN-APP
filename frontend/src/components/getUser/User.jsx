@@ -39,7 +39,7 @@ function User() {
   }
   return (
     <div className="userTable">
-      <NavLink to={"/add"} className="addButton">
+      <NavLink to={"/add"} className="addButto">
         Add User
       </NavLink>
       <table border={1} cellPadding={10} cellSpacing={0}>
