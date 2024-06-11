@@ -11,6 +11,8 @@ function User() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
+  axios.defaults.withCredentials = true;
+
   useEffect(() => {
     axios
       .get("https://mern-backend-grm4.onrender.com/api/getAll")
