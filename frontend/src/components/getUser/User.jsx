@@ -20,7 +20,7 @@ function User() {
       })
       .catch((err) => {
         toast.error("Error occurred", {
-          position: "top-cente",
+          position: "top-center",
         });
         console.log(err);
         setLoading(false);
