@@ -16,7 +16,7 @@ function User() {
       .get("https://mern-backend-grm4.onrender.com/api/getAll")
       .then((res) => {
         setUserdata(res.data.userData);
-        setLoading(fale);
+        setLoading(false);
       })
       .catch((err) => {
         toast.error("Error occurred", {
