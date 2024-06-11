@@ -16,11 +16,11 @@ function User() {
       .get("https://mern-backend-grm4.onrender.com/api/getAll")
       .then((res) => {
         setUserdata(res.data.userData);
-        setLoading(false);
+        setLoading(fale);
       })
       .catch((err) => {
         toast.error("Error occurred", {
-          position: "top-cente",
+          position: "top-center",
         });
         console.log(err);
         setLoading(false);
