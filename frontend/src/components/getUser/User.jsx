@@ -11,8 +11,6 @@ function User() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-  axios.defaults.withCredentials = true;
-
   useEffect(() => {
     axios
       .get("https://mern-backend-grm4.onrender.com/api/getAll")
@@ -47,7 +45,6 @@ function User() {
       {loading ? (
         <div className="loader">
           <h2 style={{ textAlign: "center" }}>
-        
             Please wait <br />
             Fetching data...
           </h2>
