@@ -59,7 +59,7 @@ function User() {
               Add Quote
             </NavLink>
           </div>
-          
+
           <table>
             <thead>
               <tr>
@@ -80,7 +80,7 @@ function User() {
                   <td className="actionButtons">
                     <button onClick={() => deleteData(user._id)}>Delete</button>
                     <NavLink to={`/edit/${user._id}`} id="editButton">
-                      Edit
+                      <i class="fa-solid fa-pen-to-square"></i>
                     </NavLink>
                   </td>
                 </tr>
