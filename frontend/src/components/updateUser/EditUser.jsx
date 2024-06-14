@@ -8,7 +8,7 @@ import React, { useEffect, useRef } from "react";
 
 function EditUser() {
   const { id } = useParams();
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   let fname = useRef();
   let lname = useRef();
   let email = useRef();
@@ -16,7 +16,7 @@ function EditUser() {
 
   useEffect(() => {
     axios
-      .get(`https://mern-backend-grm4.onrender.com/api/getone/${id}`)
+      .get(`${backendUrl}api/getone/${id}`)
       .then((res) => {
         fname.current.value = res.data.userData.fname;
         lname.current.value = res.data.userData.lname;
@@ -66,6 +66,7 @@ function EditUser() {
             autoComplete="off"
             placeholder="First name"
             ref={fname}
+            required
           />
         </div>
         <div className="inputGroup">
@@ -77,6 +78,7 @@ function EditUser() {
             autoComplete="off"
             placeholder="Last name"
             ref={lname}
+            required
           />
         </div>
         <div className="inputGroup">
@@ -88,6 +90,7 @@ function EditUser() {
             autoComplete="off"
             placeholder="Email"
             ref={email}
+            required
           />
         </div>
         <div className="inputGroup">

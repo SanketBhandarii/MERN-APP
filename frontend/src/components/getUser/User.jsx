@@ -7,13 +7,14 @@ import "react-toastify/dist/ReactToastify.css";
 import loader from "../../assets/loader2.gif";
 
 function User() {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [userdata, setUserdata] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get("https://mern-backend-grm4.onrender.com/api/getAll")
+      .get(`${backendUrl}api/getAll`)
       .then((res) => {
         setUserdata(res.data.userData);
         setLoading(false);
@@ -30,14 +31,12 @@ function User() {
   function deleteData(userId) {
     setUserdata((prevUser) => prevUser.filter((user) => user._id !== userId));
     toast.success("Data deleted successfully", { position: "top-center" });
-    axios
-      .delete(`https://mern-backend-grm4.onrender.com/api/delete/${userId}`)
-      .catch((err) => {
-        console.log(err.response.data);
-        toast.error("Error occurred", {
-          position: "top-center",
-        });
+    axios.delete(`${backendUrl}api/delete/${userId}`).catch((err) => {
+      console.log(err.response.data);
+      toast.error("Error occurred", {
+        position: "top-center",
       });
+    });
   }
 
   return (
@@ -45,13 +44,10 @@ function User() {
       {loading ? (
         <div className="loader">
           <img src={loader} width={280} alt="Loading" />
-          <h2 style={{ textAlign: "center", marginTop: "-10px" }}>
-            Please wait... <br />
-            <span>
-              Collecting Quotes from
-              <br /> Around the World 🌍
-            </span>
-          </h2>
+          <p style={{ textAlign: "center", marginTop: "-10px" }}>
+            Collecting Quotes from
+            <br /> Around the Globe 🌍
+          </p>
         </div>
       ) : (
         <div className="userTable">

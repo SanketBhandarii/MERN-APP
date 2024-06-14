@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddUser() {
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   let fname = useRef();
   let lname = useRef();
   let email = useRef();
@@ -28,7 +29,7 @@ function AddUser() {
     password.current.value = "";
     toast.success("User data saved successfully", { position: "top-center" });
     await axios
-      .post("https://mern-backend-grm4.onrender.com/api/create", newUser)
+      .post(`${backendUrl}api/create`, newUser)
       .then((res) => {
         navigate("/");
       })

@@ -36,7 +36,8 @@ td {
   gap: 10px;
   justify-content: center;
 }
-.actionButtons button, .actionButtons #editButton {
+.actionButtons button,
+.actionButtons #editButton {
   border: 0;
   outline: none;
   color: white;
@@ -58,14 +59,15 @@ td {
     padding: 20px;
     margin: 10px;
   }
-  th, td {
+  th,
+  td {
     padding: 8px;
   }
   .actionButtons {
-  
     gap: 5px;
   }
-  .actionButtons button, .actionButtons #editButton {
+  .actionButtons button,
+  .actionButtons #editButton {
     width: 100%;
     font-size: 12px;
   }
@@ -75,7 +77,8 @@ td {
     padding: 10px;
     margin: 10px;
   }
-  th, td {
+  th,
+  td {
     padding: 5px;
     font-size: 12px;
   }
@@ -83,7 +86,8 @@ td {
     flex-direction: column;
     gap: 5px;
   }
-  .actionButtons button, .actionButtons #editButton {
+  .actionButtons button,
+  .actionButtons #editButton {
     width: 100%;
     font-size: 10px;
   }
@@ -96,16 +100,10 @@ td {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0px ;
+  gap: 0px;
   font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
 }
-.loader>h2{
-  display: flex;
-  flex-direction: column;
-  gap:10px
-}
-.loader>h2>span{
-  font-weight: 400;
-  font-size: 21px;
+.loader > p {
+  font-size: 25px;
 }
