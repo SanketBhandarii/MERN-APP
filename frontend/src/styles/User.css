@@ -125,7 +125,7 @@ td {
   th,
   td {
     padding: 10px;
-    font-size: 12px;
+    /* font-size: 15px; */
   }
 
   .actionButtons {
@@ -143,7 +143,7 @@ td {
 
 .quote {
   color: #4e1d61; 
-  font-family: cursive;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: #f8f9f9;
 }
 
