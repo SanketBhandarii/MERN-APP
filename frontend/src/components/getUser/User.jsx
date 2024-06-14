@@ -48,7 +48,7 @@ function User() {
           <h2 style={{ textAlign: "center", marginTop: "-10px" }}>
             Please wait... <br />
             <span>
-              Collecting Quotes fom
+              Collecting Quotes from
               <br /> Around the World 🌍
             </span>
           </h2>
