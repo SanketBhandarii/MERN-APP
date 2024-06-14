@@ -4,7 +4,7 @@ import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import loader from "../../assets/loader.gif";
+import loader from "../../assets/loader2.gif";
 
 function User() {
   const [userdata, setUserdata] = useState([]);
@@ -44,11 +44,14 @@ function User() {
     <div>
       {loading ? (
         <div className="loader">
-          <h2 style={{ textAlign: "center" }}>
-            Please wait <br />
-            Fetching data...
+          <img src={loader} width={280} alt="Loading" />
+          <h2 style={{ textAlign: "center", marginTop: "-10px" }}>
+            Please wait... <br />
+            <span>
+              Collecting Quotes from
+              <br /> Around the World 🌍
+            </span>
           </h2>
-          <img src={loader} width={180} alt="Loading" />
         </div>
       ) : (
         <div className="userTable">
