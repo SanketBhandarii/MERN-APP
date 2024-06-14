@@ -7,27 +7,24 @@ import "react-toastify/dist/ReactToastify.css";
 
 function AddUser() {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  let quote = useRef();
   let fname = useRef();
   let lname = useRef();
-  let email = useRef();
-  let password = useRef();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const newUser = {
+      quote: quote.current.value,
       fname: fname.current.value,
       lname: lname.current.value,
-      email: email.current.value,
-      password: password.current.value,
     };
 
+    quote.current.value = "";
     fname.current.value = "";
     lname.current.value = "";
-    email.current.value = "";
-    password.current.value = "";
-    toast.success("User data saved successfully", { position: "top-center" });
+    toast.success("Quote shared successfully!", { position: "top-center" });
     await axios
       .post(`${backendUrl}api/create`, newUser)
       .then((res) => {
@@ -35,7 +32,7 @@ function AddUser() {
       })
       .catch((err) => {
         console.log(err.response.data);
-        toast.error("Error occurred", {
+        toast.error("An error occurred", {
           position: "top-center",
         });
       });
@@ -43,9 +40,23 @@ function AddUser() {
 
   return (
     <div className="addUser">
-      <NavLink to={"/"}>Back</NavLink>
+      <NavLink to={"/"} className="backButton">
+      <i class="fa-solid fa-circle-left"></i>
+      </NavLink>
       <form method="POST" onSubmit={handleSubmit}>
-        <h3>Add New User</h3>
+        <h3>Share Your Wisdom</h3>
+        <div className="inputGroup">
+          <label htmlFor="quote">Your Insightful Quote</label>
+          <input
+            type="text"
+            id="quote"
+            name="quote"
+            autoComplete="off"
+            placeholder="E.g., 'Your patience is your power'"
+            ref={quote}
+            required
+          />
+        </div>
         <div className="inputGroup">
           <label htmlFor="fname">First Name</label>
           <input
@@ -53,7 +64,7 @@ function AddUser() {
             id="fname"
             name="fname"
             autoComplete="off"
-            placeholder="First name"
+            placeholder="Enter your first name"
             ref={fname}
             required
           />
@@ -65,37 +76,14 @@ function AddUser() {
             id="lname"
             name="lname"
             autoComplete="off"
-            placeholder="Last name"
+            placeholder="Enter your last name"
             ref={lname}
             required
           />
         </div>
+
         <div className="inputGroup">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            autoComplete="off"
-            placeholder="Email"
-            ref={email}
-            required
-          />
-        </div>
-        <div className="inputGroup">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            autoComplete="off"
-            placeholder="Password"
-            ref={password}
-            required
-          />
-        </div>
-        <div className="inputGroup">
-          <button type="submit">Add User</button>
+          <button type="submit">Share Now</button>
         </div>
       </form>
       <ToastContainer />

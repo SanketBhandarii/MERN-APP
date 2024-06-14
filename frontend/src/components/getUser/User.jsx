@@ -30,7 +30,7 @@ function User() {
 
   function deleteData(userId) {
     setUserdata((prevUser) => prevUser.filter((user) => user._id !== userId));
-    toast.success("Data deleted successfully", { position: "top-center" });
+    toast.success("Quote deleted successfully", { position: "top-center" });
     axios.delete(`${backendUrl}api/delete/${userId}`).catch((err) => {
       console.log(err.response.data);
       toast.error("Error occurred", {
@@ -43,7 +43,7 @@ function User() {
     <div>
       {loading ? (
         <div className="loader">
-          <img src={loader} width={280} alt="Loading" />
+          <img src={loader} alt="Loading" />
           <p style={{ textAlign: "center", marginTop: "-10px" }}>
             Collecting Quotes from
             <br /> Around the Globe 🌍
@@ -51,15 +51,21 @@ function User() {
         </div>
       ) : (
         <div className="userTable">
-          <NavLink to={"/add"} className="addButton">
-            Add User
-          </NavLink>
-          <table border={1} cellPadding={10} cellSpacing={0}>
+          <div className="table-header">
+            <h3 className="app-name">
+              Quote<span>Fusion</span>
+            </h3>
+            <NavLink to={"/add"} className="addButton">
+              Add Quote
+            </NavLink>
+          </div>
+          
+          <table>
             <thead>
               <tr>
                 <th>Sr No.</th>
+                <th>Quote</th>
                 <th>User Name</th>
-                <th>User Email</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -67,10 +73,10 @@ function User() {
               {userdata.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
+                  <td className="quote">"{user.quote}"</td>
                   <td>
                     {user.fname} {user.lname}
                   </td>
-                  <td>{user.email}</td>
                   <td className="actionButtons">
                     <button onClick={() => deleteData(user._id)}>Delete</button>
                     <NavLink to={`/edit/${user._id}`} id="editButton">

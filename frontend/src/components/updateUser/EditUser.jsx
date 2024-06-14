@@ -9,37 +9,38 @@ import React, { useEffect, useRef } from "react";
 function EditUser() {
   const { id } = useParams();
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  let quote = useRef();
   let fname = useRef();
   let lname = useRef();
-  let email = useRef();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get(`${backendUrl}api/getone/${id}`)
       .then((res) => {
+        quote.current.value = res.data.userData.quote;
         fname.current.value = res.data.userData.fname;
         lname.current.value = res.data.userData.lname;
-        email.current.value = res.data.userData.email;
       })
       .catch((err) => {
         toast.error("Error occurred", {
           position: "top-center",
         });
+        console.log(err);
       });
   }, []);
 
   async function update(event) {
     event.preventDefault();
     const newUser = {
+      quote: quote.current.value,
       fname: fname.current.value,
       lname: lname.current.value,
-      email: email.current.value,
     };
+    quote.current.value = "";
     fname.current.value = "";
     lname.current.value = "";
-    email.current.value = "";
-    toast.success("Data successfully updated", { position: "top-center" });
+    toast.success("Quote successfully updated", { position: "top-center" });
     await axios
       .put(`https://mern-backend-grm4.onrender.com/api/update/${id}`, newUser)
       .then((res) => {
@@ -54,47 +55,50 @@ function EditUser() {
   }
   return (
     <div className="addUser">
-      <NavLink to={"/"}>Back</NavLink>
+      <NavLink to={"/"}>
+        <i class="fa-solid fa-circle-left"></i>
+      </NavLink>
       <form action="" onSubmit={update}>
-        <h3>Update User</h3>
+        <h3>Edit your quote</h3>
         <div className="inputGroup">
-          <label htmlFor="fname">First Name</label>
+          <label htmlFor="quote">Your Insightful Quote</label>
           <input
             type="text"
-            id="fname"
-            name="fname"
+            id="quote"
+            name="quote"
             autoComplete="off"
-            placeholder="First name"
+            placeholder="E.g., 'Your inspiring quote here'"
+            ref={quote}
+            required
+          />
+        </div>
+        <div className="inputGroup">
+          <label htmlFor="quote">First Name</label>
+          <input
+            type="text"
+            id="quote"
+            name="quote"
+            autoComplete="off"
+            placeholder="Enter your first name"
             ref={fname}
             required
           />
         </div>
         <div className="inputGroup">
-          <label htmlFor="lname">Last Name</label>
+          <label htmlFor="fname">Last Name</label>
           <input
             type="text"
-            id="lname"
-            name="lname"
+            id="fname"
+            name="fname"
             autoComplete="off"
-            placeholder="Last name"
+            placeholder="Enter your last name"
             ref={lname}
             required
           />
         </div>
+
         <div className="inputGroup">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            autoComplete="off"
-            placeholder="Email"
-            ref={email}
-            required
-          />
-        </div>
-        <div className="inputGroup">
-          <button>Update User</button>
+          <button type="submit">Edit & Share</button>
         </div>
       </form>
       <ToastContainer />

@@ -1,57 +1,95 @@
 .userTable {
-  background-color: white;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
-  border-radius: 5px;
-  padding: 50px; /* Adjusted padding for responsiveness */
-  margin: 20px;
+  background-color: #fff; /* Light grey background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 800px;
 }
+
 .addButton {
-  text-decoration: none;
-  background-color: purple;
+  background-color: #3498db; /* Blue */
   color: white;
-  font-weight: 500;
-  padding: 10px;
-  border-radius: 5px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
   display: inline-block;
-  margin-bottom: 20px;
+
+  transition: background-color 0.3s ease;
 }
+.addButton:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
 .userTable table {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
 }
+.table-header {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.table-header > h3,
+span {
+  font-size: 22px;
+  font-weight: 600;
+}
+.table-header > h3 > span {
+  color: #e74c3c;
+}
 th {
-  background-color: darkblue;
+  background-color: #2c3e50; /* Dark blue */
   color: white;
-  padding: 10px;
-  text-align: left; /* Improved readability */
-}
-td {
-  padding: 10px 20px;
+  padding: 14px;
   text-align: center;
+  border: 1px solid #2c3e50; /* Consistent border */
 }
+
+td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid #dddddd; /* Light grey border */
+  color: #333333; /* Dark grey text */
+}
+
 .actionButtons {
   display: flex;
   align-items: center;
-  gap: 10px;
   justify-content: center;
+  gap: 10px;
 }
+
 .actionButtons button,
 .actionButtons #editButton {
-  border: 0;
-  outline: none;
   color: white;
-  border-radius: 5px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
   cursor: pointer;
-  font-size: 14px;
   text-decoration: none;
-  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+  transition: background-color 0.3s ease;
 }
+
 .actionButtons button {
-  background: rgb(228, 4, 4);
+  background-color: #e74c3c; /* Red */
 }
+
+.actionButtons button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
 .actionButtons #editButton {
-  background: rgb(0, 168, 79);
+  background-color: #27ae60; /* Green */
+}
+
+.actionButtons #editButton:hover {
+  background-color: #2ecc71; /* Darker green on hover */
 }
 
 @media (max-width: 768px) {
@@ -59,38 +97,54 @@ td {
     padding: 20px;
     margin: 10px;
   }
+
   th,
   td {
-    padding: 8px;
+    padding: 12px;
   }
+
   .actionButtons {
-    gap: 5px;
+    gap: 8px;
   }
+
   .actionButtons button,
   .actionButtons #editButton {
-    width: 100%;
-    font-size: 12px;
+    padding: 12px 12px;
+  }
+  .table-header {
+    margin-bottom: 10px;
   }
 }
+
 @media (max-width: 480px) {
   .userTable {
     padding: 10px;
     margin: 10px;
   }
+
   th,
   td {
-    padding: 5px;
+    padding: 10px;
     font-size: 12px;
   }
+
   .actionButtons {
     flex-direction: column;
     gap: 5px;
   }
+
   .actionButtons button,
   .actionButtons #editButton {
+    font-size: 12px;
+    padding: 10px 10px;
     width: 100%;
-    font-size: 10px;
   }
+}
+
+.quote {
+  color: #4e1d61; /* Purple */
+  font-family: cursive;
+  background-color: #f8f9f9; /* Light grey background */
 }
 
 .loader {
@@ -103,6 +157,9 @@ td {
   gap: 0px;
   font-family: "Roboto", sans-serif;
   background-color: #f8f8f8;
+}
+.loader > img {
+  width: 280px;
 }
 .loader > p {
   font-size: 25px;

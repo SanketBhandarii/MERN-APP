@@ -7,7 +7,9 @@
   margin: auto; /* Center align the form */
   margin-top: 20px;
 }
-
+.addUser > a> i {
+  font-size: 30px;
+}
 .addUser > form {
   width: 100%;
   margin-top: 30px;
@@ -36,7 +38,7 @@
 .inputGroup > button {
   border: 0;
   outline: none;
-  background-color: purple;
+  background-color: #3498db;
   color: white;
   font-weight: 600;
   padding: 13px;
