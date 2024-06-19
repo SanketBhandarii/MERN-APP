@@ -17,7 +17,7 @@ function AddUser() {
 
     const newUser = {
       quote: quote.current.value,
-      fname: fname.current.value,
+      fname: fname.current.value,   
       lname: lname.current.value,
     };
 

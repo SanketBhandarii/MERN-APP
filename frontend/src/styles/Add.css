@@ -7,7 +7,7 @@
   margin: auto;
   margin-top: 20px;
 }
-.addUser > a> i {
+.addUser > a > i {
   font-size: 30px;
 }
 .addUser > form {
@@ -31,7 +31,7 @@
 
 .inputGroup > input {
   padding: 9px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -45,42 +45,19 @@
   cursor: pointer;
   border-radius: 5px;
 }
-
-@media (max-width: 441px) {
+@media (max-width: 463px) {
   .addUser > form > h3 {
     font-size: 20px;
   }
-
-  .inputGroup > input {
-    padding: 7px; 
+  .addUser{
+    width: 350px;
   }
-
   .inputGroup > button {
     padding: 11px;
   }
 }
-
-@media (max-width: 480px) {
-  .addUser {
-    width: 350px; 
-    padding: 50px; 
-  }
-
-  .addUser > form > h3 {
-    font-size: 18px; 
-  }
-
-  .inputGroup > input {
-    padding: 9px; 
-  }
-
-  .inputGroup > button {
-    padding: 9px;
-  }
-}
-@media (max-width: 480px) {
-  .addUser {
-    width: 100%; 
-    padding: 50px; 
+@media (max-width: 372px) {
+  .addUser{
+    width: 320px;
   }
 }
