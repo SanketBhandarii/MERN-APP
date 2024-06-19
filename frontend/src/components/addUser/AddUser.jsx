@@ -20,7 +20,7 @@ function AddUser() {
       fname: fname.current.value,   
       lname: lname.current.value,
     };
-
+   
     quote.current.value = "";
     fname.current.value = "";
     lname.current.value = "";
